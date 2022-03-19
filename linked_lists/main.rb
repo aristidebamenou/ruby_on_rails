@@ -43,6 +43,14 @@ class LinkedList
     each_node { |node| return node if node.next_node.nil? }
   end
 
+  def at(index)
+    count = 0
+    each_node do |node|
+      count += 1
+      return node if count == index
+    end
+  end
+
   private
 
   def each_node
