@@ -71,6 +71,12 @@ class LinkedList
     nil
   end
 
+  def to_s
+    strings = ""
+    each_node { |node| strings = "#{strings}(#{node.value}) -> " }
+    "#{strings} nil"
+  end
+
   private
 
   def each_node
