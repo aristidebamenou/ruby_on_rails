@@ -35,6 +35,12 @@ class LinkedList
     count
   end
 
+  def head
+    node = @head
+    node.next_node = nil
+    node
+  end
+
   private
 
   def each_node
