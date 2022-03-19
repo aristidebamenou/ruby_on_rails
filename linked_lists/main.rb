@@ -40,7 +40,7 @@ class LinkedList
   end
 
   def tail
-    each_node { |node| return node if node.next_node.nil? }
+    each_node { |node| return node unless node.next_node }
   end
 
   def at(index)
@@ -49,6 +49,12 @@ class LinkedList
       count += 1
       return node if count == index
     end
+  end
+
+  def pop
+    node = @head
+    node.next_node = nil unless node.next_node.next_node while(node = node.next_node)
+    node
   end
 
   private
