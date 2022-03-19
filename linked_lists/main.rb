@@ -13,7 +13,21 @@ end
 class LinkedList
   attr_accessor :head
 
+  def initialize(head = nil)
+    @head = head
+  end
+
+  def append(value)
+    @head ? find_tail.next_node = Node.new(value) : @head = Node.new(value)
+  end
+
+  private
+
+  def find_tail
+    node = @head
+    return node unless node.next_node
+
+    return node unless node.next_node while (node = node.next_node)
+  end
 end
 
-second_node = Node.new('data', nil)
-first_node = Node.new('last', second_node)
