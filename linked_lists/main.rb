@@ -62,6 +62,15 @@ class LinkedList
     false
   end
 
+  def find(value)
+    count = 0
+    each_node do |node|
+      count += 1
+      return count if node.value == value
+    end
+    nil
+  end
+
   private
 
   def each_node
