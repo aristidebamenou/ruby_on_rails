@@ -18,7 +18,7 @@ class LinkedList
   end
 
   def append(value)
-    @head ? find_tail.next_node = Node.new(value) : @head = Node.new(value)
+    @head ? last_node.next_node = Node.new(value) : @head = Node.new(value)
   end
 
   def prepend(value)
@@ -29,10 +29,17 @@ class LinkedList
 
   private
 
-  def find_tail
-    node = @head
-    return node unless node.next_node
+  def each_node
+    return unless block_given?
 
-    return node unless node.next_node while (node = node.next_node)
+    return unless @head
+
+    node = @head
+    yield node
+    yield node while (node = node.next_node)
+  end
+
+  def last_node
+    each_node { |node| return node if node.next_node.nil? }
   end
 end
