@@ -21,6 +21,12 @@ class LinkedList
     @head ? find_tail.next_node = Node.new(value) : @head = Node.new(value)
   end
 
+  def prepend(value)
+    node = Node.new(value)
+    node.next_node = @head
+    @head = node
+  end
+
   private
 
   def find_tail
@@ -30,4 +36,3 @@ class LinkedList
     return node unless node.next_node while (node = node.next_node)
   end
 end
-
