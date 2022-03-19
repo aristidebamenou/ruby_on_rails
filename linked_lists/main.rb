@@ -53,8 +53,13 @@ class LinkedList
 
   def pop
     node = @head
-    node.next_node = nil unless node.next_node.next_node while(node = node.next_node)
+    node.next_node = nil unless node.next_node.next_node while (node = node.next_node)
     node
+  end
+
+  def contains?(value)
+    each_node { |node| return true if node.value == value }
+    false
   end
 
   private
