@@ -36,9 +36,7 @@ class LinkedList
   end
 
   def head
-    node = @head
-    node.next_node = nil
-    node
+    Node.new(@head.value)
   end
 
   private
