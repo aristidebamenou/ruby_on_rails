@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Node class, containing a #value method and a link to the #next_node
 class Node
   attr_reader :value
@@ -25,6 +27,12 @@ class LinkedList
     node = Node.new(value)
     node.next_node = @head
     @head = node
+  end
+
+  def size
+    count = 0
+    each_node { count += 1 }
+    count
   end
 
   private
